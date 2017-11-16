@@ -35,27 +35,27 @@ sort_data=function(){
           sheet_no=as.numeric(sheet_no)
           test=as.data.frame(read_xlsx(file[file_no],sheet=sheet_no))
           # test1=as.data.frame(test)
-          test<<-test1
+          test<-test
         }else if(excel_tf==2){
           coltypes=map.coltypes(file[file_no],header=T)
 
           test=csvread(file[file_no],coltypes=coltypes,header=T)
-          test<<-test
+          test<-test
         }
       }
 
       print(names(test))
       start=readline(prompt="시점 column(ex>1):")
-      start<<-as.numeric(start)
+      start<-as.numeric(start)
       last=readline(prompt="종점 column(ex>2):")
-      last<<-as.numeric(last)
+      last<-as.numeric(last)
       print("1. 복수응답가능 ','로 구분")
       print("2. pivot기능 사용시 pivot 기준열 가장 먼저 기입")
       content=readline(prompt="content column :")
-      try(test[,as.numeric(start)]<<-as.numeric(as.character(test[,as.numeric(start)])))
-      try(test[,as.numeric(last)]<<-as.numeric(as.character(test[,as.numeric(last)])))
+      try(test[,as.numeric(start)]<-as.numeric(as.character(test[,as.numeric(start)])))
+      try(test[,as.numeric(last)]<-as.numeric(as.character(test[,as.numeric(last)])))
       eval(parse(text=paste0("test=test[,c(",start,",",last,",",content,")]")))
-      test<<-test
+      test<-test
       sub=readline(prompt="단위기준:")
       sub<-as.numeric(sub)
       spread=readline(prompt="pivot 적용여부(1.적용 2.생략):")
@@ -90,7 +90,7 @@ sort_data=function(){
 
         if(spread==1&i==length(test[,1])) sort=spread(sort,content1,content2)
 
-        sort<<-sort
+        sort<-sort
         print(
           paste0(
             i,"/",length(test[,1])
