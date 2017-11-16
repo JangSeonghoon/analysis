@@ -24,7 +24,7 @@ sort_data=function(){
 
       table_tf=readline(prompt="workspace에 table이 있습니까?(1.yes 2.no):")
       if(table_tf==2){
-        file<<-list.files()
+        file<-list.files()
         print(file)
         file_no=readline(prompt="몇번째 파일입니까?:")
         file_no=as.numeric(file_no)
