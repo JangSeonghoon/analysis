@@ -8,6 +8,7 @@ devtools::use_package("forecast")
 devtools::use_package("dplyr")
 devtools::use_package("stringr")
 devtools::use_package("stats")
+devtools::use_package("htmlwidgets")
 #' @importFrom RJDBC JDBC
 #' @importFrom DBI dbConnect
 #' @importFrom DBI dbSendQuery
@@ -35,6 +36,7 @@ devtools::use_package("stats")
 #' @importFrom highcharter hchart
 #' @importFrom forecast forecast
 #' @importFrom stats HoltWinters
+#' @importFrom htmlwidgets saveWidget
 #' @export
 tqi_trend=function(startD,lastD,km){
   startD=startD
@@ -116,7 +118,7 @@ tqi_trend=function(startD,lastD,km){
       movingInclude=c(movingInclude,rep(0,400))
       temp=mutate(temp,movingInclude=movingInclude)
 
-    }else if(longLevel==0){
+    }else if(longLevel==0){c.eval("plot(A)")
       temp=mutate(temp,movingInclude=temp[,2])
     }#if
 
@@ -134,9 +136,7 @@ tqi_trend=function(startD,lastD,km){
   TQI_pita=t(TQI_pita)
   demand<-ts(TQI_pita[-1,km],start=c(2015),frequency=4)
   (hw=HoltWinters(demand,seasonal="additive"))
-  A=forecast(hw,h=4)
-  A <<- A
-  hchart(forecast(hw,h=4))
-  return(A)
+  saveWidget(hchart(forecast(hw,h=4)),"/home/jsh/eclipse-workspace/bigTeam/src/main/webapp/html/tqi_trend.html")
+
 }#function
 

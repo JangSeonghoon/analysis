@@ -18,5 +18,6 @@ Imports: dplyr,
     RJDBC,
     highcharter,
     forecast,
-    stats
+    stats,
+    htmlwidgets
 RoxygenNote: 6.0.1
