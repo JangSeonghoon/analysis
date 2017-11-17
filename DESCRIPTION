@@ -14,5 +14,8 @@ Imports: dplyr,
     readxl,
     csvread,
     compiler,
-    tidyr
+    tidyr,
+    RJDBC,
+    highcharter,
+    forecast
 RoxygenNote: 6.0.1
