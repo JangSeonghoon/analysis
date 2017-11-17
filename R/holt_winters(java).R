@@ -7,6 +7,7 @@ devtools::use_package("highcharter")
 devtools::use_package("forecast")
 devtools::use_package("dplyr")
 devtools::use_package("stringr")
+devtools::use_package("stats")
 #' @importFrom RJDBC JDBC
 #' @importFrom DBI dbConnect
 #' @importFrom DBI dbSendQuery
@@ -33,7 +34,7 @@ devtools::use_package("stringr")
 #' @importFrom magrittr %>%
 #' @importFrom highcharter hchart
 #' @importFrom forecast forecast
-#' @importFrom forecast HoltWinters
+#' @importFrom stats HoltWinters
 #' @export
 tqi_trend=function(startD,lastD,km){
   startD=startD
