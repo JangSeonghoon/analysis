@@ -136,6 +136,7 @@ tqi_trend=function(startD,lastD,km){
   TQI_pita=t(TQI_pita)
   demand<-ts(TQI_pita[-1,km],start=c(2015),frequency=4)
   (hw=HoltWinters(demand,seasonal="additive"))
+  A=forecast(hw,h=4)
   saveWidget(hchart(forecast(hw,h=4)),"/home/jsh/eclipse-workspace/bigTeam/src/main/webapp/html/tqi_trend.html")
 
 }#function
