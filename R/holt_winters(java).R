@@ -34,9 +34,8 @@ devtools::use_package("stringr")
 #' @importFrom highcharter hchart
 #' @importFrom forecast forecast
 #' @importFrom forecast HoltWinters
-#' @import
-#'
-holt=function(startD,lastD,km){
+#' @export
+tqi_trend=function(startD,lastD,km){
   startD=startD
   lastD=lastD
   km=km
