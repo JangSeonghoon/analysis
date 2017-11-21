@@ -7,8 +7,9 @@ devtools::use_package("stringr")
 devtools::use_package("readxl")
 devtools::use_package("csvread")
 devtools::use_package("compiler")
+devtools::use_package("tidyr")
 
-#' @importFrom dplyr spread
+#' @importFrom tidyr spread
 #' @importFrom dplyr group_by
 #' @importFrom dplyr mutate
 #' @importFrom stringr str_replace_all
