@@ -7,7 +7,6 @@ devtools::use_package("stringr")
 devtools::use_package("readxl")
 devtools::use_package("csvread")
 devtools::use_package("compiler")
-devtools::use_package("tidyr")
 
 #' @importFrom dplyr spread
 #' @importFrom dplyr group_by
@@ -17,7 +16,6 @@ devtools::use_package("tidyr")
 #' @importFrom csvread map.coltypes
 #' @importFrom csvread csvread
 #' @importFrom compiler cmpfun
-#' @importFrom tidyr spread
 #' @export
 sort_data=function ()
 {
